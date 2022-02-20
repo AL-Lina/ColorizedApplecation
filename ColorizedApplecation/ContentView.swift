@@ -12,12 +12,15 @@ struct ContentView: View {
     @State private var sliderValueForGreenColor = Double.random(in: 0...255)
     @State private var sliderValueForBlueColor = Double.random(in: 0...255)
     @State private var colorValue = ""
+    
+    @State private var colorOfView = Color.black
     var body: some View {
         ZStack {
             Color.orange
                 .ignoresSafeArea()
             VStack {
                 Rectangle()
+                    .foregroundColor(Color(red: sliderValueForRedColor, green: sliderValueForGreenColor, blue: sliderValueForBlueColor))
                     .frame(width: 300, height: 150)
                     .cornerRadius(30)
                     .overlay(RoundedRectangle(cornerRadius: 30).stroke(Color.white, lineWidth: 4))
@@ -63,7 +66,7 @@ struct ContentView: View {
             }
             }
             
-            
+    
             
             
         }
