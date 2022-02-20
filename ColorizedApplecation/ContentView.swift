@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var sliderValue = Double.random(in: 0...255)
+    @State private var sliderValueForRedColor = Double.random(in: 0...255)
+    @State private var sliderValueForGreenColor = Double.random(in: 0...255)
+    @State private var sliderValueForBlueColor = Double.random(in: 0...255)
     @State private var colorValue = ""
     var body: some View {
         ZStack {
@@ -22,8 +24,8 @@ struct ContentView: View {
                 Spacer()
                 VStack(spacing:20) {
                     HStack{
-                    Text("0").foregroundColor(.red)
-                    Slider(value: $sliderValue, in: 0...255, step: 1)
+                    Text("\(lround(sliderValueForRedColor))").foregroundColor(.red)
+                    Slider(value: $sliderValueForRedColor, in: 0...255, step: 1)
                             .accentColor(Color.red)
                             .border(Color.red, width: 1)
                         TextField("", text: $colorValue)
@@ -33,8 +35,8 @@ struct ContentView: View {
                         Spacer()
                     }
                         HStack {
-                            Text("0").foregroundColor(.green)
-                            Slider(value: $sliderValue, in: 0...255, step: 1)
+                            Text("\(lround(sliderValueForGreenColor))").foregroundColor(.green)
+                            Slider(value: $sliderValueForGreenColor, in: 0...255, step: 1)
                                 .accentColor(Color.green)
                                 .border(Color.green, width: 1)
                             TextField("", text: $colorValue)
@@ -44,8 +46,8 @@ struct ContentView: View {
                             
                         }
                     HStack {
-                        Text("0").foregroundColor(.blue)
-                        Slider(value: $sliderValue, in: 0...255, step: 1)
+                        Text("\(lround(sliderValueForBlueColor))").foregroundColor(.blue)
+                        Slider(value: $sliderValueForBlueColor, in: 0...255, step: 1)
                             .accentColor(Color.blue)
                             .border(Color.blue, width: 1)
                         TextField("", text: $colorValue)
